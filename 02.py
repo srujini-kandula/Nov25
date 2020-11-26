@@ -16,11 +16,21 @@ output: 0
 import unittest
 
 def min_row(m,n,l):
-    """
-    m,n define size of matrix 
-    l list of m*n elements
-    """
-	pass
+    if all(i==0 for i in l):
+        return -1
+    c=0
+    minind=minval=1000
+    for i in range(0,len(l),m):
+        k=l[i:i+m]
+        if k.count(1)<minval:
+            minind=c
+            minval=k.count(1)
+        c+=1  
+    return minind
+
+
+	
+    
 
 # DO NOT TOUCH THE BELOW CODE
 class TestCommonWords(unittest.TestCase):
